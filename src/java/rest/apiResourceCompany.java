@@ -27,7 +27,7 @@ import javax.ws.rs.core.UriInfo;
  *
  * @author Athinodoros
  */
-@Path("api")
+@Path("company")
 public class apiResourceCompany {
 
     @Context
