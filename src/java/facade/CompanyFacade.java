@@ -30,9 +30,10 @@ public class CompanyFacade implements CompanyInterface
     {
         EntityManager em = getEntityManager();
         try {
-            Query query = em.createNamedQuery("");
+            Query query = em.createNamedQuery("CityInfo.findByZipCode");
+            query.setParameter("zipCode", zipCode);
             //insert exception handling here
-            return null;
+            return (CityInfo) query.getSingleResult();
         } finally {
             em.close();
         }
