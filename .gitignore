@@ -79,3 +79,7 @@ web/META-INF/context.xml
 src/conf/persistence.xml
 src/conf/persistence.xml
 src/conf/persistence.xml
+nbproject/ant-deploy.xml
+*.properties
+nbproject/private/private.xml
+*.properties
