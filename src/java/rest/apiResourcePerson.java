@@ -87,10 +87,10 @@ public class apiResourcePerson {
     }
 
     @DELETE
-    @Consumes("application/json")
     @Produces("application/json")
-    public String deletePerson(String content) throws PersonNotFoundException {
+    @Path("{id}")
+    public String deletePerson(@PathParam("id") long id) throws PersonNotFoundException {
 
-        return JSONconverter.getJSONFromPerson(facade.deletePerson(JSONconverter.getPersonFromJSON(content)));
+        return JSONconverter.getJSONFromPerson(facade.deletePerson(id));
     }
 }

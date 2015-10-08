@@ -87,10 +87,10 @@ public class apiResourceCompany {
     }
 
     @DELETE
-    @Consumes("application/json")
     @Produces("application/json")
-    public String deleteCompany(String content) {
+    @Path("{cvr}")
+    public String deleteCompany(@PathParam("cvr") int cvr) {
 
-        return JSONconverter.getJSONFromCompany(facade.deleteCompany(JSONconverter.getCompanyFromJSON(content)));
+        return JSONconverter.getJSONFromCompany(facade.deleteCompany(cvr));
     }
 }

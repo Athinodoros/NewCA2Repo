@@ -5,6 +5,8 @@ import static com.jayway.restassured.RestAssured.basePath;
 import static com.jayway.restassured.RestAssured.baseURI;
 import static com.jayway.restassured.RestAssured.defaultParser;
 import com.jayway.restassured.parsing.Parser;
+import entity.Address;
+import entity.Person;
 import javax.ws.rs.core.MediaType;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.hasItems;
@@ -32,47 +34,46 @@ public class TestCRUDpersonAPI
 
     
     @Test
-    public void testCreateUser()
+    public void testPOST()
     {
-        ProjectUser user = new ProjectUser();
-        user.setUserName("testFirstName");
-        user.setEmail("test@Email.com");
-        user.setCreated(new java.util.Date());
+        Person person = new Person("restTESTfName", "restTESTlName", "rest@TEST.com", 
+                        new Address("restTESTstreet", "This is a restTEST address", 
+                        null));
         RestAssured
                 .given()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(user)
+                .body(person)
                 .when()
                 .post()
                 .then()
-                .body("userName", equalTo(user.getUserName()));
+                .body("firstName", equalTo(person.getFirstName()));
     }
 
     @Test
-    public void testGetUser()
+    public void testGET1()
     {
         RestAssured
                 .get("/1")
                 .then()
                 .assertThat()
                 .statusCode(200)
-                .body("userName", is("sofus"));
+                .body("firstName", is("Lance"));
     }
 
     @Test
-    public void testGetUsers()
+    public void testGET2()
     {
         RestAssured
-                .get("/")
+                .get("/all")
                 .then()
                 .body("id", hasItems(1, 2, 3));
     }
 
     @Test
-    public void testDeleteUser()
+    public void testDELETE()
     {
         RestAssured
-                .delete("/6")
+                .delete("/4")
                 .then()
                 .assertThat()
                 .statusCode(200);

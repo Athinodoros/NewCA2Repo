@@ -48,11 +48,11 @@ public class PersonFacade implements PersonInterface
     }
 
     @Override
-    public Person deletePerson(Person p) throws PersonNotFoundException
+    public Person deletePerson(long id) throws PersonNotFoundException
     {
         EntityManager em = emf.createEntityManager();
         try {
-            Person pers = em.find(Person.class, p.getId());
+            Person pers = em.find(Person.class, id);
             if (pers == null) {
                 throw new PersonNotFoundException("No Person found with provided id");
             }
