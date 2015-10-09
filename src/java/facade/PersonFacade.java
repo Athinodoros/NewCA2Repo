@@ -2,10 +2,12 @@ package facade;
 
 import entity.CityInfo;
 import entity.Person;
+import entity.Phone;
 import exception.PersonNotFoundException;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 
 /**
  *
@@ -95,6 +97,11 @@ public class PersonFacade implements PersonInterface
         EntityManager em = getEntityManager();
         try {
             Person p = em.find(Person.class, id);
+            long i = p.getId();
+            List<Phone> createQuery = em.createQuery("SELECT p from  Phone p WHERE infoentity_id = i ").getResultList();
+            for (Phone createQuery1 : createQuery) {
+                p.addPhoneToEntity(createQuery1);
+            }
             if (p == null) {
                 throw new PersonNotFoundException("No Person found with provided id");
             }
