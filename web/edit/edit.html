@@ -18,7 +18,7 @@ and open the template in the editor.
         <link href="../css/acordeon.css" rel="stylesheet" type="text/css"/>
         <script src="../scripts/edit.js" type="text/javascript"></script>
         <script src="../scripts/acordeon.js" type="text/javascript"></script>
-        
+
 
     </head>
     <body>
@@ -31,18 +31,66 @@ and open the template in the editor.
                     <div id="accordion-1" class="accordion-section-content">
 
                         <form class="form-group-lg">
-                            <p class="form-title"> First Name </p>
-                            <input type="text" value="First name" class="firstName" />
-                            <p class="form-title"> Last name </p>
-                            <input type="text" value="Last name" class="lastName" />
-                            <p class="form-title"> Phone </p>
-                            <input type="text" value="Phone " class="phone" />
-                            <p class="form-title"> Address </p>
-                            <input type="text" value="Address " class="address" />
-                            <p class="form-title"> Select City </p>
-                            <select>
-                                <option>hi</option>
-                            </select>
+                            <div class="divcol" >
+                                <p class="form-title"> Company Name </p>
+                                <input type="text" value="First name" class="name" />
+
+                                <p class="form-title"> CVR </p>
+                                <input type="text" value="Phone " class="cvr" />
+
+                                <p class="form-title"> Market Value </p>
+                                <input type="text" value="marketValue" class="marketValue" />
+
+                                <p class="form-title"> Number of employees </p>
+                                <input type="text" value="Address " class="numOfEmployees" />
+
+                                <p class="form-title"> e-mail </p>
+                                <input type="email" value="email " class="zipCode" />
+
+                                <p class="form-title"> Description </p>
+                                <textarea style="width: 100%; height: 100px" class="descriptionCity">
+                                </textarea>
+                            </div>
+                            <div class="divcol" >
+                                <p class="form-title"> Select City </p>
+                                <select name="city">
+
+                                </select>
+
+                                <p class="form-title"> Zip Code </p>
+                                <input type="text" value="zipCode " class="zipCode" />
+
+                                
+                            </div>
+                            <div class="divcol" >
+                                <p class="form-title"> Phone </p>
+                                <input type="number" value="" class="phoneNumber" />
+
+                                <p class="form-title"> Phone Description </p>
+                                <input type="text" value="Phone" class="descriptionPhone" />
+
+
+                            </div>
+                            <div class="divcol" >
+                                <p class="form-title"> Street  </p>
+                                <input type="text" value="" class="streetName" />
+
+                                <p class="form-title"> Additional info  </p>
+                                <input type="text" value="" class="additionalInfo" />
+
+
+                            </div>
+                            <div class="divcol" >
+                                <input type="button" value="add" class="addCompany" />
+                                <br/>
+                                <br/>
+                                <input type="button" value="edit" class="editCompany" />
+                                <br/>
+                                <br/>
+                                <input type="button" value="edit" class="editCompany" />
+                                <br/>
+                                <br/>
+                            </div>
                         </form>
 
                     </div>
