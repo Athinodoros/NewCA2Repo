@@ -18,19 +18,19 @@ and open the template in the editor.
     </head>
     <body>
         <h2>All persons</h2>
-        <table class="table table-striped" id="table">
+        <table class="table table-striped" id="table" style=" width: 90%">
       <thead>
         <tr><td>ID</td><td>First Name</td><td>Last name</td><td>Phone</td>
-            <td>email</td><td>Address</td></tr>
+            <td>email</td><td>street</td><td>city</td><td>actions</td></tr>
       </thead>
       <br>
       <tbody id="tbody"></tbody>
-        <form id="myForm">
+        <form id="myForm" role="form" data-toggle="validator">
             First name: <br>
-            <input type="text" id="fname">
+            <input type="text" id="fname" >
             <br>
             Last name: <br>
-            <input type="text" id="lname">
+            <input type="text" id="lname" >
             <br>
             Telephone: <br>
             <input type="tel" id="phone">
@@ -38,7 +38,19 @@ and open the template in the editor.
             Email: <br>
             <input type="email" id="email">
             <br>
-            <button type="button" id="submit">submit</button>
+            street:<br>
+            <input type="text" id="street">
+            <br>
+            Additional info: <br>
+            <input type="text" id="additionainfo">
+            <br>
+            Zip code:<br>
+            <input type="text" id="zipcode">
+            <br>
+            City: <br>
+            <input type="text" id="city">
+            <br>
+            <input type="submit" id="submit">
         </form>
       
     </body>
