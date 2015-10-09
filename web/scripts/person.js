@@ -8,6 +8,7 @@
 $(document).ready(function(){
     var $url ='/CA2/api/person';
     
+    function load(){
     $.ajax({
             type: 'GET',
             url: $url + "/all",
@@ -36,10 +37,14 @@ $(document).ready(function(){
             }
         
     });
+    };
+    load();
+    
     $("#submit").click(function() {
         var $type = "POST";
         var data = {firstName: $("#fname").val(), lastName: $("#lname").val(), 
-             phones:{phones:$("#phone").val()},email: $("#email").val()};
+             //phones:{phoneNumber:$("#phone").val()},
+             email: $("#email").val()};
         var $url = "/CA2/api/person";
         $.ajax({
             type: $type,
@@ -49,7 +54,8 @@ $(document).ready(function(){
             contentType: "application/json",
             success: function (data) {
                 location.reload();
-            },
+                load();
+            }
         });
     });
 });
