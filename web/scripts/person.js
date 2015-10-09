@@ -36,5 +36,22 @@ $(document).ready(function(){
             }
         
     });
+    $("#submit").click(function() {
+        var $type = "POST";
+        var data = {firstName: $("#fname").val(), lastName: $("#lname").val(), 
+             phones:{phones:$("#phone").val()},email: $("#email").val()};
+        var $url = "/CA2/api/person";
+        $.ajax({
+            type: $type,
+            url: $url,
+            data: JSON.stringify(data),
+            dataType: "json",
+            contentType: "application/json",
+            success: function (data) {
+                location.reload();
+            },
+        });
+    });
 });
+
 
