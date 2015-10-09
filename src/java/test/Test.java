@@ -5,8 +5,7 @@
  */
 package test;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import deploy.DeploymentConfiguration;
 import javax.persistence.Persistence;
 
 /**
@@ -18,11 +17,11 @@ public class Test
 
     public static void main(String[] args)
     {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("CA2TEST", null);
-        EntityManager em = emf.createEntityManager();
-        em.getTransaction().begin();
-        int deletedCount = em.createQuery("DELETE FROM InfoEntity").executeUpdate();
-        em.getTransaction().commit();
-        System.out.println(deletedCount);
+        Persistence.generateSchema(DeploymentConfiguration.PU_NAME, null);
+//        EntityManager em = emf.createEntityManager();
+//        em.getTransaction().begin();
+//        int deletedCount = em.createQuery("DELETE FROM InfoEntity").executeUpdate();
+//        em.getTransaction().commit();
+//        System.out.println(deletedCount);
     }
 }

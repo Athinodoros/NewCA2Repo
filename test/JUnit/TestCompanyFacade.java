@@ -1,5 +1,6 @@
 package JUnit;
 
+import deploy.DeploymentConfiguration;
 import entity.Address;
 import entity.CityInfo;
 import entity.Company;
@@ -20,7 +21,7 @@ public class TestCompanyFacade
 
     public TestCompanyFacade()
     {
-        cf = new CompanyFacade(Persistence.createEntityManagerFactory("CA2PU2"));
+        cf = new CompanyFacade(Persistence.createEntityManagerFactory(DeploymentConfiguration.PU_NAME));
     }
 
     @Test
