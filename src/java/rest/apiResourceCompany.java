@@ -20,6 +20,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 
 /**
@@ -93,4 +94,19 @@ public class apiResourceCompany {
 
         return JSONconverter.getJSONFromCompany(facade.deleteCompany(cvr));
     }
+//    @DELETE
+//    @Produces("application/json")
+//    @Consumes(MediaType.WILDCARD)
+//    public String deleteCompany2(long id) {
+//
+//        return JSONconverter.getJSONFromCompany(facade.deleteCompanyById(id));
+//    }
+//    @DELETE
+//    @Path("{id}")
+//    @Produces("application/json")
+//    @Consumes(MediaType.WILDCARD)
+//    public String deleteCompany3(@PathParam ("id") long id) {
+//
+//        return JSONconverter.getJSONFromCompany(facade.deleteCompanyById(id));
+//    }
 }

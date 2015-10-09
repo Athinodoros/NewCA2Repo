@@ -92,14 +92,14 @@ public class CompanyFacade implements CompanyInterface
     }
 
     @Override
-    public Company deleteCompany(int cvr)
+    public Company deleteCompany(long cvr)
     {
         EntityManager em = getEntityManager();
         try {
-            Query query = em.createNamedQuery("Company.findByCvr");
-            query.setParameter("cvr", cvr);
+//            Query query = em.createNamedQuery("Company.findByCvr");
+//            query.setParameter("cvr", cvr);
             //insert exception handling here
-            Company company = (Company) query.getSingleResult();
+            Company company = em.find(Company.class, cvr);
             //insert exception handling here
             em.getTransaction().begin();
             em.remove(company);
@@ -109,6 +109,20 @@ public class CompanyFacade implements CompanyInterface
             em.close();
         }
     }
+//    @Override
+//    public Company deleteCompanyById(long cvr)
+//    {
+//        EntityManager em = getEntityManager();
+//        try {
+//            em.getTransaction().begin();
+//            Company company = em.find(Company.class, (long)cvr);
+//            em.remove(company);
+//            em.getTransaction().commit();
+//            return company;
+//        } finally {
+//            em.close();
+//        }
+//    }
 
     @Override
     public List<Company> getCompanies()

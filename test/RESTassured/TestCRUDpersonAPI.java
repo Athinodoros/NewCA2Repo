@@ -53,7 +53,7 @@ public class TestCRUDpersonAPI
     public void testGET1()
     {
         RestAssured
-                .get("/1")
+                .get("/1251")
                 .then()
                 .assertThat()
                 .statusCode(200)
@@ -66,14 +66,14 @@ public class TestCRUDpersonAPI
         RestAssured
                 .get("/all")
                 .then()
-                .body("id", hasItems(11, 12, 13));
+                .body("id", hasItems(1248, 1249, 1250));
     }
 
     @Test
     public void testDELETE()
     {
         RestAssured
-                .delete("/100")
+                .delete("/1254")
                 .then()
                 .assertThat()
                 .statusCode(200);

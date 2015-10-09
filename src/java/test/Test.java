@@ -5,6 +5,8 @@
  */
 package test;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 /**
@@ -16,6 +18,11 @@ public class Test
 
     public static void main(String[] args)
     {
-        Persistence.generateSchema("CA2PU", null);
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("CA2TEST", null);
+        EntityManager em = emf.createEntityManager();
+        em.getTransaction().begin();
+        int deletedCount = em.createQuery("DELETE FROM InfoEntity").executeUpdate();
+        em.getTransaction().commit();
+        System.out.println(deletedCount);
     }
 }
