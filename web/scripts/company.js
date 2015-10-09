@@ -6,6 +6,7 @@
 
 
 $(document).ready(function () {
+
     $("#table thead").append("<tr><th>id</th><th>cvr</th><th>numOfEmployees</th><th>email</th><th>phones</th><th>action</th></tr>");
     $url = '/CA2/api/company';
     var full = function () {
@@ -26,14 +27,14 @@ $(document).ready(function () {
                         phonelist = data[i].phones[j] + "<br/>";
                     }
                     var $edit = "<td><a href='/CA2/edit/edit.html' class='" + data[i].id + "' data-id='" + data[i].id + "' >edit</a>  ";
-                    var $delete = " / <a href='#' class='" + data[i].id +  "' >delete</a> </td> ";
+                    var $delete = " / <a href='#' class='" + data[i].id + "' >delete</a> </td> ";
                     var phones = "<td>" + phonelist + "</td>";
                     console.log("<tr>" + id + cvr + numOfEmployees + email + phones + "</tr>");
                     $("#table").append("<tr>" + id + cvr + numOfEmployees + email + phones + $edit + $delete + "</tr>");
                 }
 
                 //$("#table").append("</tbody>");
-                
+
             }
 
         });
@@ -42,18 +43,20 @@ $(document).ready(function () {
 
     $(document).on("click", "a", function () {
         //$.cookie.defineProperties( "actionss" , "company");
-        
-        var act ="company";
+
+        var act = "company";
         var myA = this;
         if (this.innerText === "edit") {
-//            document.cookie="id="+ 32434 ;
-            location.reload();
+            localStorage.setItem("id",$(myA).attr('class') );
+            var val = localStorage.getItem("xxx");
+            console.log("sadsgadfijcakvlmsdvamwdv     " + val);
+            document.localStorage.
+                    $(window).load($(myA).attr("href"));
         } else if (this.innerText === "delete") {
             alert('/CA2/api/company/' + $(myA).attr("class"));
 
             $.ajax({
                 type: 'DELETE',
-                
                 url: '/CA2/api/company/' + $(myA).attr("class"),
                 success: function (data, textStatus, jqXHR) {
                     location.reload();
@@ -66,5 +69,17 @@ $(document).ready(function () {
 
         }
     });
+
+
+
+//
+//    function setCookie(counter, exdays) {
+//        var d = new Date();
+//        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+//        var expires = "expires=" + d.toUTCString();
+//        document.cookie = "Counter" + "=" + counter + "; " + expires;
+//    }
+
+
 
 });

@@ -10,9 +10,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link href="../css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        
     </head>
     <body>
-        <h1>Hello World!</h1>
-        <a data-id="34" href="edit/edit.html" >asdasdads</a>
+        <h1>Hello World! And what a world it is! :P</h1>
+        <div id="authors"> Athinodoros Sgouromallis, Frederik Alexander Vygg Larsen, Rihards Pacēvičs </div>
+
+        <div id="class">A or B or COS</div>
+
+        <div id= "group"> Group number </div>
     </body>
 </html>
